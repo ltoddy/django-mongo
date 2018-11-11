@@ -10,7 +10,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',  # 这个项目用不到 admin application, 所以就先注释掉了, 省的出现数据迁移的提示.
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
