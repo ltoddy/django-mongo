@@ -1,50 +1,91 @@
-.nav-container {
-    display: flex;
-    flex-direction: row;
-    background-color: #000;
+/*---------begin sidebar---------*/
+.side-nav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #293846;
+    z-index: 1;
+    overflow-x: hidden;
 }
 
-.nav {
-    list-style: none;
-}
-
-.nav-title {
-    color: green;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.content {
-    background-color: #222;
-    color: #fff;
-}
-
-.footer {
-    height: 200px;
-    background-color: #000;
+.mongo-info-container {
+    height: 150px;
+    background-color: #2a2f43;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.footer-content {
+.mongo-info-item {
+    margin: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-content: center;
 }
 
-.footer-content-item {
-    margin: 0 20px;
+/*--------------------------------*/
+.mongo-icon {
+    height: 80px;
+    border-radius: 100px;
 }
 
-.footer-content-item:hover {
+.mongo-uri {
+    font-size: 20px;
+    color: white;
+}
+
+/*----------------------------*/
+.mongo-db-container {
+    background-color: #293846;
+    color: white;
+}
+
+.mongo-db-name {
+    font-size: 17px;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 10px red;
+}
+
+.mongo-db-name > a {
+    color: white;
+    text-decoration: none;
+}
+
+.mongo-db-name > a:hover {
+    color: #67d3e0;
+}
+
+/*--------------------------------*/
+
+.main {
+    margin-right: 250px;
+}
+
+.navigation {
+    background-color: #b3d4fc;
+    height: 65px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: #5b80b2 0 6px 10px;
+}
+
+.content {
+    background-color: #5b80b2;
+    margin: 30px;
+    box-shadow: #609ab6 0 0 5px;
+    height: 800px;
+}
+
+.footer {
+    margin: 30px;
+    height: 200px;
     background-color: #aaaaaa;
-    border-radius: 5px;
-    transform: scale(1.2);
-}
-
-.footer-content-item > a {
-    color: #33ff66;
-    text-decoration-line: none;
+    box-shadow: #609ab6 0 0 5px;
 }

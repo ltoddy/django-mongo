@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mongo dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <style>
+        html, body {
+            margin: 0;
+        }
+    </style>
+    {% block style %}{% endblock style %}
+</head>
+<body>
+{% block content %}{% endblock content %}
+
+{% block javascript %}{% endblock javascript %}
+</body>
+</html>

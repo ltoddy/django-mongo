@@ -1,56 +1,41 @@
+{% extends "mongo/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>mongo dashboard</title>
+
+{% block style %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <style>
-        html, body {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
+{% endblock style %}
 
-<nav class="nav-container">
-    <ul class="nav nav-left">
-        <li class="nav-title">mongo dashboard</li>
-    </ul>
-</nav>
+{% block content %}
+    <div class="side-nav">
+        <div class="mongo-info-container">
+            <div class="mongo-info-item">
+                <img class="mongo-icon" src="{% static "me.jpg" %}" alt="">
+            </div>
+            <div class="mongo-info-item mongo-uri">
+                <span>localhost:27017</span>
+            </div>
+        </div>
 
-<header></header>
-
-<div class="content">
-    <div class="container">
-        <h1>Hello, mongo!</h1>
+        <div class="mongo-db-container">
+            {% for name in database_names %}
+                <div class="mongo-db-name">
+                    <a href="">{{ name }}</a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
 
-<footer class="footer">
-    <div class="footer-content">
-        <span class="footer-content-item">
-            <a href="">
-                Powered by django-mongo
-            </a>
-        </span>
+    <div class="main">
+        <nav class="navigation" role="navigation">
+            您当前位置为: mongodb://localhost:27017/test
+        </nav>
 
-        <span style="color: #fff;"> | </span>
+        <div class="content">
+            这里展现数据
+        </div>
 
-        <span class="footer-content-item">
-            <a href="">
-                Open Source
-            </a>
-        </span>
-
-        <span style="color: #fff;"> | </span>
-
-        <span class="footer-content-item">
-        <a href="https://twitter.com/taoliu0509">
-            Follow me on Twitter
-        </a>
-        </span>
+        <footer class="footer">
+            fork on github
+        </footer>
     </div>
-</footer>
-</body>
-</html>
+{% endblock content %}
