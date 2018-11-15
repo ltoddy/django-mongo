@@ -1,0 +1,26 @@
+.paginate-container {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.paginate-item {
+    margin: 0 2px;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.paginate-item:hover {
+    background-color: #9c27b0;
+}
+
+.paginate-item > a {
+    color: #000;
+    text-decoration: none;
+}
+
+.paginate-item-active, .paginate-item-active a {
+    background-color: #9c27b0;
+    cursor: not-allowed;
+}

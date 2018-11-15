@@ -1,0 +1,24 @@
+.date_list {
+    padding: 20px 70px 20px 70px;
+}
+
+.data-item {
+    margin: 2px 0;
+    font-size: 18px;
+    padding: 5px 0;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+.corner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.per-count {
+    margin: auto 0;
+    padding: 3px;
+    border-radius: 5px;
+}
