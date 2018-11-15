@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>mongo dashboard</title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
     <style>
         html, body {
             margin: 0;
@@ -13,14 +14,28 @@
 
     {% block style %}
         <link rel="stylesheet" href="{% static 'css/_sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/_navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/_footer.css' %}">
     {% endblock style %}
 </head>
 <body background="{% static "background.png" %}">
 
-{% block content %}{% endblock content %}
+{% block content %}
+    {% include 'mongo/_sidebar.html' %}
+
+    <div class="main">
+        {% include 'mongo/_navbar.html' %}
+
+        {% block main %}{% endblock %}
+
+        {% include 'mongo/_footer.html' %}
+    </div>
+
+{% endblock content %}
 
 {% block javascript %}
     <script src="{% static 'js/_sidebar.js' %}"></script>
+    <script src="{% static 'js/_navbar.js' %}"></script>
 {% endblock javascript %}
 
 </body>

@@ -2,7 +2,9 @@
 <div class="side-nav">
     <div class="mongo-info-container">
         <div class="mongo-info-item">
-            <img class="mongo-icon" src="{% static "me.jpg" %}" alt="">
+            <a href="{% url 'mongo:index' %}">
+                <img class="mongo-icon" src="{% static "me.jpg" %}" alt="">
+            </a>
         </div>
         <div class="mongo-info-item mongo-uri">
             <span>localhost:27017</span>
@@ -14,13 +16,14 @@
     <div class="mongo-db-container">
         {% for db, collections in database_names.items %}
             <div class="mongo-db">
-                <div class="mongo-db-name" onclick="changeOpenAndCloseIconAndCollections(this)">
+                <div class="mongo-db-name {% if current_db and current_db == db %}mongo-db-active{% endif %}"
+                     onclick="changeOpenAndCloseIconAndCollections(this)">
                     <span>∇</span><span> {{ db }} </span>
                 </div>
-                <div class="mongo-db-collections">
+                <div class="mongo-db-collections" {% if current_db and current_db == db %}style="display: block"{% endif %}>
                     {% for collection in collections %}
                         <div class="mongo-db-collection">
-                            <a href="">{{ collection }}</a>
+                            <a href="{% url 'mongo:detail' db collection %}">{{ collection }}</a>
                         </div>
                     {% endfor %}
                 </div>

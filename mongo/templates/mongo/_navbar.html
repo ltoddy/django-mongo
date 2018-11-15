@@ -1,0 +1,15 @@
+{% load static %}
+
+<nav class="navigation" role="navigation">
+    <div class="navigation-container">
+        <div class="navigation-left">
+            <span class="open-close" id="close-open" onclick="toggleSideBar()">&equiv;</span>
+            <span><a href="{% url 'mongo:index' %}">dashboard</a></span>
+            <span><a href="">shell</a></span>
+        </div>
+
+        <div class="navigation-right">
+            <span>Login / Logout</span>
+        </div>
+    </div>
+</nav>

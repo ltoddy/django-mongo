@@ -1,0 +1,45 @@
+.navigation {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+    background: linear-gradient(60deg, #ab47bc, #8e24aa);;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #fff;
+}
+
+.navigation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.navigation-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navigation-left > span {
+    margin-right: 20px;
+}
+
+.navigation-left > span:hover {
+    text-shadow: 0 0 1px lightblue;
+}
+
+.navigation-left a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.open-close {
+    font-size: 20px;
+}
+
+.open-close:hover {
+    cursor: pointer;
+}

@@ -1,35 +1,12 @@
 .main {
-    background-color: #eee;
+    background-color: rgba(238, 238, 238, 0.8);
     margin-left: 260px;
     transition-duration: 0.5s;
 }
 
-.navigation {
-    background-color: #b3d4fc;
-    height: 65px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: #5b80b2 0 6px 10px;
-}
-
-.navigation-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 40px;
-}
-
 .content {
-    background-color: #5b80b2;
+    background-color: rgb(91, 128, 178);
     margin: 30px;
     box-shadow: #609ab6 0 0 5px;
-    height: 800px;
-}
-
-.footer {
-    margin: 30px;
-    height: 200px;
-    background-color: #aaaaaa;
-    box-shadow: #609ab6 0 0 5px;
+    height: 500px;
 }
