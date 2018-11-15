@@ -1,0 +1,30 @@
+{% load static %}
+<div class="side-nav">
+    <div class="mongo-info-container">
+        <div class="mongo-info-item">
+            <img class="mongo-icon" src="{% static "me.jpg" %}" alt="">
+        </div>
+        <div class="mongo-info-item mongo-uri">
+            <span>localhost:27017</span>
+        </div>
+    </div>
+
+    <div class="divide"></div>
+
+    <div class="mongo-db-container">
+        {% for db, collections in database_names.items %}
+            <div class="mongo-db">
+                <div class="mongo-db-name" onclick="changeOpenAndCloseIconAndCollections(this)">
+                    <span>∇</span><span> {{ db }} </span>
+                </div>
+                <div class="mongo-db-collections">
+                    {% for collection in collections %}
+                        <div class="mongo-db-collection">
+                            <a href="">{{ collection }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

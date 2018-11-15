@@ -1,0 +1,106 @@
+.side-nav {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    transition-duration: 0.5s;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.mongo-info-container {
+    color: #3C4858;
+    height: 170px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mongo-info-item {
+    color: #3C4858;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.open-close {
+    color: #3C4858;
+    transition-duration: 0.5s;
+    font-size: 25px;
+}
+
+.open-close:hover {
+    cursor: pointer;
+}
+
+.mongo-icon {
+    height: 80px;
+    border-radius: 100px;
+}
+
+.mongo-uri {
+    font-size: 20px;
+    color: #3C4858;
+}
+
+.divide {
+    border: solid 0.4px #3C4858;
+    margin-left: 10px;
+    width: 240px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
+
+.mongo-db-container {
+    color: #3C4858;
+}
+
+.mongo-db {
+    margin: 0 20px;
+    font-size: 17px;
+}
+
+.mongo-db-name {
+    transition-duration: 0.6s;
+    border-radius: 5px;
+    padding: 15px 0 15px 20px;
+}
+
+.mongo-db-name:hover {
+    background-color: rgba(200, 200, 200, 0.2);
+    cursor: pointer;
+}
+
+.mongo-db-active {
+    background-color: #9c27b0;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+    color: #fff;
+}
+
+.mongo-db-active:hover {
+    background-color: #9c27b0 !important;
+}
+
+.mongo-db-collections {
+    display: none;
+}
+
+.mongo-db-collection {
+    color: #3C4858;
+    padding: 5px 0 5px 30px;
+    border-radius: 5px;
+}
+
+.mongo-db-collection:hover {
+    background-color: rgba(200, 200, 200, 0.2);
+}
+
+.mongo-db-collection > a {
+    color: #3C4858;
+    text-decoration: none;
+}
