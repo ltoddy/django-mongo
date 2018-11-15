@@ -1,41 +1,86 @@
-{% extends "mongo/base.html" %}
 {% load static %}
-
-{% block style %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mongo dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <style>
+        html, body {
+            margin: 0;
+        }
+    </style>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-{% endblock style %}
-
-{% block content %}
-    <div class="side-nav">
-        <div class="mongo-info-container">
-            <div class="mongo-info-item">
-                <img class="mongo-icon" src="{% static "me.jpg" %}" alt="">
-            </div>
-            <div class="mongo-info-item mongo-uri">
-                <span>localhost:27017</span>
-            </div>
+</head>
+<body>
+<div class="side-nav">
+    <div class="mongo-info-container">
+        <span class="open-close" onclick="closeSideBar()">&equiv;</span>
+        <div class="mongo-info-item">
+            <img class="mongo-icon" src="{% static "me.jpg" %}" alt="">
         </div>
-
-        <div class="mongo-db-container">
-            {% for name in database_names %}
-                <div class="mongo-db-name">
-                    <a href="">{{ name }}</a>
-                </div>
-            {% endfor %}
+        <div class="mongo-info-item mongo-uri">
+            <span>localhost:27017</span>
         </div>
     </div>
 
-    <div class="main">
-        <nav class="navigation" role="navigation">
-            您当前位置为: mongodb://localhost:27017/test
-        </nav>
-
-        <div class="content">
-            这里展现数据
-        </div>
-
-        <footer class="footer">
-            fork on github
-        </footer>
+    <div class="mongo-db-container">
+        {% for name in database_names %}
+            <div class="mongo-db-name">
+                <span onclick="changeOpenAndCloseIcon(this)">
+                    <span>&plusmn;</span> {{ name }}
+                </span>
+            </div>
+        {% endfor %}
     </div>
-{% endblock content %}
+</div>
+
+<div class="main">
+    <nav class="navigation" role="navigation">
+        <div class="navigation-container">
+            <span>您当前位置为: mongodb://localhost:27017/test</span>
+            <span class="open-close hide" id="close-open" onclick="openSideBar()">&equiv;</span>
+        </div>
+    </nav>
+
+    <div class="content">
+        这里展现数据
+    </div>
+
+    <footer class="footer">
+        fork on github
+    </footer>
+</div>
+
+<script>
+    function closeSideBar() {
+        const sideBarNode = document.getElementsByClassName("side-nav")[0];
+        const mainNode = document.getElementsByClassName("main")[0];
+        const openBarNode = document.getElementById("close-open");
+
+        sideBarNode.style.width = 0;
+        mainNode.style.marginRight = 0;
+        openBarNode.style.display = "block";
+    }
+
+    function openSideBar() {
+        const sideBar = document.getElementsByClassName("side-nav")[0];
+        const main = document.getElementsByClassName("main")[0];
+        const openBarNode = document.getElementById("close-open");
+
+        sideBar.style.width = "250px";
+        main.style.marginRight = "250px";
+        openBarNode.style.display = "none";
+    }
+
+
+    function changeOpenAndCloseIcon(element) {
+        if (element.childNodes[1].innerText === "±") {
+            element.childNodes[1].innerText = "−";
+        } else {
+            element.childNodes[1].innerText = "±"
+        }
+    }
+</script>
+</body>
+</html>

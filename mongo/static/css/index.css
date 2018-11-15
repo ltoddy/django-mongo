@@ -1,3 +1,7 @@
+.hide {
+    display: none;
+}
+
 /*---------begin sidebar---------*/
 .side-nav {
     height: 100%;
@@ -8,15 +12,27 @@
     background-color: #293846;
     z-index: 1;
     overflow-x: hidden;
+    transition-duration: 0.5s;
 }
 
 .mongo-info-container {
-    height: 150px;
+    height: 170px;
     background-color: #2a2f43;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.open-close {
+    transition-duration: 0.5s;
+    font-size: 25px;
+    color: white;
+}
+
+.open-close:hover {
+    cursor: pointer;
+    color: #67d3e0;
 }
 
 .mongo-info-item {
@@ -49,31 +65,35 @@
     padding-top: 12px;
     padding-bottom: 12px;
     border: 10px red;
-}
-
-.mongo-db-name > a {
     color: white;
-    text-decoration: none;
 }
 
-.mongo-db-name > a:hover {
+.mongo-db-name:hover {
     color: #67d3e0;
+    cursor: pointer;
 }
 
 /*--------------------------------*/
 
 .main {
     margin-right: 250px;
+    transition-duration: 0.5s;
 }
 
 .navigation {
     background-color: #b3d4fc;
     height: 65px;
-    padding-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-shadow: #5b80b2 0 6px 10px;
+}
+
+.navigation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 40px;
 }
 
 .content {
