@@ -10,13 +10,18 @@
             margin: 0;
         }
     </style>
-    {% block style %}{% endblock style %}
+
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'css/_sidebar.css' %}">
+    {% endblock style %}
 </head>
-<body>
+<body background="{% static "background.png" %}">
+
 {% block content %}{% endblock content %}
 
-<script>
-    {% block javascript %}{% endblock javascript %}
-</script>
+{% block javascript %}
+    <script src="{% static 'js/_sidebar.js' %}"></script>
+{% endblock javascript %}
+
 </body>
 </html>

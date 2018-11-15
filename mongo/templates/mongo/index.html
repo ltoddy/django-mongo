@@ -1,33 +1,23 @@
+{% extends 'mongo/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>mongo dashboard</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
-    <style>
-        html, body {
-            margin: 0;
-        }
-    </style>
-    <link rel="stylesheet" href="{% static 'css/_sidebar.css' %}">
+
+{% block style %}
+    {{ block.super }}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-</head>
-<body background="{% static "background.png" %}">
+{% endblock style %}
 
-{% include 'mongo/_sidebar.html' %}
+{% block content %}
+    {% include 'mongo/_sidebar.html' %}
 
-<div class="main">
-    <nav class="navigation" role="navigation">
-        <div class="navigation-container">
-            <span class="open-close" id="close-open" onclick="toggleSideBar()">&equiv;</span>
-            {#            <span>TODO: 您当前位置为: mongodb://localhost:27017/test</span>#}
-        </div>
-    </nav>
-    <div class="content">这里展现数据</div>
-    <footer class="footer">fork on github</footer>
-</div>
+    <div class="main">
+        <nav class="navigation" role="navigation">
+            <div class="navigation-container">
+                <span class="open-close" id="close-open" onclick="toggleSideBar()">&equiv;</span>
+                <span>TODO: 您当前位置为: mongodb://localhost:27017/test</span>
+            </div>
+        </nav>
+        <div class="content">这里展现数据</div>
+        <footer class="footer">fork on github</footer>
+    </div>
 
-<script src="{% static 'js/_sidebar.js' %}"></script>
-</body>
-</html>
+{% endblock content %}
