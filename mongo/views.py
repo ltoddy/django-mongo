@@ -1,5 +1,6 @@
-from pprint import pformat
 import math
+from pprint import pformat
+from textwrap import shorten
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
@@ -16,9 +17,13 @@ def detail(request: HttpRequest, db_name: str, collection_name: str) -> HttpResp
     database_names = {name: mongo_client[name].list_collection_names() for name in mongo_client.list_database_names()}
     current_db = mongo_client[db_name]
     current_collection = current_db[collection_name]
+
     per_page = int(request.GET.get('per_page', 10))
     page = int(request.GET.get('page', 0))
-    date_list = current_collection.find({}, limit=per_page, skip=page * per_page)
+
+    date_list = map(lambda date: {'compressed': shorten(str(date), width=120), 'origin': pformat(date)},
+                    current_collection.find({}, limit=per_page, skip=page * per_page))
+
     total = math.ceil(current_collection.count() / per_page)
     return render(
         request, 'mongo/detail.html',

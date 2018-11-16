@@ -2,12 +2,21 @@
     padding: 20px 70px 20px 70px;
 }
 
-.data-item {
+.data-item-compressed {
     margin: 2px 0;
     font-size: 18px;
     padding: 5px 0;
     border: solid 1px;
     border-radius: 5px;
+}
+
+.data-item-compressed:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.date-item-origin {
+    display: none;
 }
 
 .corner {

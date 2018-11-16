@@ -12,7 +12,8 @@
     <div class="date_list">
         <ul>
             {% for date in date_list %}
-                <li class="data-item">{{ date }}</li>
+                <li class="data-item-compressed" onclick="showOrigin(this)">{{ date.compressed }}</li>
+                <pre class="date-item-origin"><code>{{ date.origin }}</code></pre>
             {% endfor %}
         </ul>
 
@@ -38,6 +39,7 @@
 
 {% block javascript %}
     {{ block.super }}
+    <script src="{% static 'js/detail.js' %}"></script>
     <script>
         function changePerPageCount(element) {
             const per_page = [10, 15, 25, 50, 100];
