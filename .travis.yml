@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.6"
+services:
+  - mongodb
+env:
+  - MONGO_HOST=127.0.0.1
+  - MONGO_PORT=27017
+
+install:
+  - pip install -r requirements.txt
+script:
+  python manage.py test
