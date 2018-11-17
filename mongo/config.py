@@ -2,7 +2,7 @@ import os
 from ipaddress import ip_address
 from socket import INADDR_LOOPBACK
 
-__all__ = ['Config']
+__all__ = ['config']
 
 
 class Config:
@@ -37,8 +37,8 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
+    TESTING = True
     # TODO
-    pass
 
 
 class ProductionConfig(Config):
