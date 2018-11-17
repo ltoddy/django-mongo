@@ -6,10 +6,12 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 from . import mongo_client
+from .utils import get_database_names
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    database_names = {name: mongo_client[name].list_collection_names() for name in mongo_client.list_database_names()}
+    # database_names = {name: mongo_client[name].list_collection_names() for name in mongo_client.list_database_names()}
+    database_names = get_database_names(mongo_client)
     return render(request, 'mongo/index.html', {'database_names': database_names})
 
 
@@ -50,3 +52,7 @@ def login(request: HttpRequest) -> HttpResponse:
 def logout(request: HttpRequest) -> HttpResponse:
     # TODO
     return HttpResponse('这个页面用于退出你当前的mongo, 回到默认mongo的配置上')
+
+
+def shell(request: HttpRequest) -> HttpResponse:
+    return HttpResponse('mongo shell')
