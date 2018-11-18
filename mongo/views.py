@@ -3,10 +3,13 @@ from pprint import pformat
 from textwrap import shorten
 
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from pymongo import MongoClient
 
 from . import mongo_client
 from .utils import get_database_names
+from .forms import LoginForm
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -45,8 +48,16 @@ def detail(request: HttpRequest, db_name: str, collection_name: str) -> HttpResp
 
 
 def login(request: HttpRequest) -> HttpResponse:
-    # TODO
-    return HttpResponse('这个页面用来更来 mongo 的 uri')
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            mongo_config = form.save(commit=True)
+            global mongo_client
+            mongo_client = MongoClient(mongo_config.uri())
+            return redirect(reverse('mongo:index'))
+    else:
+        form = LoginForm()
+    return render(request, 'mongo/login.html', {'form': form})
 
 
 def logout(request: HttpRequest) -> HttpResponse:

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mongo dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
+    <style>
+        html, body {
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/_navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body background="{% static "background.png" %}">
+{% include 'mongo/_navbar.html' %}
+<div class="container">
+    <form action="" method="post" class="form-container">
+        {% csrf_token %}<br>
+
+        <div class="form-item">
+            <span class="form-label">{{ form.username.label }}</span>
+            <span class="form-input">{{ form.username }}</span>
+        </div>
+
+        <div class="form-item">
+            <span class="form-label">{{ form.password.label }}</span>
+            <span class="form-input">{{ form.password }}</span>
+        </div>
+
+        <div class="form-item">
+            <span class="form-label">{{ form.host.label }}</span>
+            <span class="form-input">{{ form.host }}</span>
+        </div>
+
+        <div class="form-item">
+            <span class="form-label">{{ form.port.label }}</span>
+            <span class="form-input">{{ form.port }}</span>
+        </div>
+
+        <div>
+            <button class="form-submit" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% include 'mongo/_footer.html' %}
+<script src="{% static 'js/_navbar.js' %}"></script>
+</body>
+</html>

@@ -13,11 +13,11 @@ INSTALLED_APPS = [
     # 'django.contrib.admin',  # 这个项目用不到 所以就先注释掉了, 省的出现数据迁移的提示.
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
-    # 'django.contrib.messages',
+    'django.contrib.sessions',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'mongo.apps.MongoConfig'
+    'mongo'
 ]
 
 MIDDLEWARE = [
